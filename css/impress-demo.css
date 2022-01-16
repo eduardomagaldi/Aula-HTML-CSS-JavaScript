@@ -85,7 +85,7 @@ body {
     font-family: 'PT Sans', sans-serif;
     min-height: 740px;
 
-    background: rgb(215, 215, 215);
+    /* background: rgb(215, 215, 215); */
     background: -webkit-gradient(radial, 50% 50%, 0, 50% 50%, 500, from(rgb(240, 240, 240)), to(rgb(190, 190, 190)));
     background: -webkit-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
     background:    -moz-radial-gradient(rgb(240, 240, 240), rgb(190, 190, 190));
@@ -213,7 +213,7 @@ a:focus {
     will automatically scale the steps to fit the screen.
 */
 .slide {
-    display: block;
+    /* display: block;
 
     width: 900px;
     height: 700px;
@@ -230,7 +230,7 @@ a:focus {
     font-family: 'Open Sans', Arial, sans-serif;
     font-size: 30px;
     line-height: 36px;
-    letter-spacing: -1px;
+    letter-spacing: -1px; */
 }
 
 .slide q {
