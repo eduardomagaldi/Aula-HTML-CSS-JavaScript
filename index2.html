@@ -45,25 +45,66 @@
         </div>
 
         <div class="wrapper-main">
-            <div id="impress" data-transition-duration="1000" data-width="1800" data-height="768"
+            <div id="impress" data-transition-duration="1000" data-width="1500" data-height="768"
                       data-max-scale="3" data-min-scale="0" data-perspective="1000">
 
-                <div class="step slide cover" data-x="0" data-y="0">
+                <!--
+
+        Here is where interesting thing start to happen.
+
+        Each step of the presentation should be an element inside the `#impress` with a class name
+        of `step`. These step elements are positioned, rotated and scaled by impress.js, and
+        the 'camera' shows them on each step of the presentation.
+
+        Positioning information is passed through data attributes.
+
+        In the example below we only specify x and y position of the step element with `data-x="-1000"`
+        and `data-y="-1500"` attributes. This means that **the center** of the element (yes, the center)
+        will be positioned in point x = -1000px and y = -1500px of the presentation 'canvas'.
+
+        It will not be rotated or scaled.
+
+        --------
+        Plugins: For first slide, set the autoplay time to a custom 10 seconds.
+
+    -->
+                <div class="step slide" data-x="0" data-y="0">
                     <div>
-                        <h1 class="mb-1"><small>Introdução à</small> <br /><strong>programação
-                                Front-end</strong>
+                        <h1><small>Introdução à</small> <br /><span>programação Front-end</span>
                         </h1>
 
-                        <img class="capa image" src="img/capa.png">
+                        <img class="capa" src="img/capa.png">
                     </div>
                 </div>
 
-                <div class="step slide" data-x="1300" data-y="0">
-                    <div>
-                        <h1 class="mb-2"><span><strong>Front-end</strong> <small>vs</small>
-                                <strong>Back-end</strong></span></h1>
+                <div id="ing" class="step slide" data-x="1300" data-y="0">
 
-                        <img class="image" src="img/front-vs-back.png">
+                    <div>
+                        <h1><span>Front-end <small>vs</small> Back-end</span></h1>
+
+
+                        <b class="scaling">scaling</b>
+
+                        <!-- <img class="capa" src="img/capa.png"> -->
+
+
+                        <div class="step">
+                            <q>
+                                <small>computação</small>
+                            </q>
+                        </div>
+
+                        <div id="em-nuvem" class="step">
+                            <q>em nuvem</q>
+                        </div>
+
+                        <div class="step main manter">
+                            <big><q>=</q></big>
+                        </div>
+
+                        <div class="step main manter">
+                            <q>internet</q>
+                        </div>
                     </div>
 
                     <!-- <h1>
@@ -71,120 +112,6 @@
                         <span class="css">CSS</span><small> e</small>
                         <span class="js">JavaScript</span>
                     </h1>
-
-                    <div class="flex align-items-center">
-                        <img class="logo" src="img/html.png">
-                        <img class="logo" src="img/css.png">
-                        <img class="logo" src="img/js.png">
-                    </div> -->
-                </div>
-
-                <div class="step slide" data-x="2600" data-y="0">
-                    <div>
-                        <div class="flex">
-                            <div class="column flex flex-direction-column align-items-center">
-                                <h1>
-                                    <span class="html">HTML</span>
-                                </h1>
-                                <p class="html mb-2">Estrutura e Conteúdo</p>
-
-                                <div
-                                          class="wrapper-img flex flex-direction-column align-items-center">
-                                    <img class="casa" src="img/casa-estrutura.jpg">
-                                    <img class="corpo" src="img/corpo-estrutura.jpg">
-                                </div>
-                            </div>
-
-                            <div class="column flex flex-direction-column align-items-center">
-                                <h1>
-                                    <span class="css">CSS</span>
-                                </h1>
-                                <p class="css mb-2">Estilo e Posicionamento</p>
-
-                                <div
-                                          class="wrapper-img flex flex-direction-column align-items-center">
-                                    <img class="casa" src="img/casa-estilo.jpg">
-                                    <img class="corpo" src="img/corpo-estilo.jpg">
-                                </div>
-                            </div>
-
-                            <div class="column flex flex-direction-column align-items-center">
-                                <h1>
-                                    <span class="js normal-case">JavaScript</span>
-                                </h1>
-                                <p class="js mb-2">Interação / Funcionamento</p>
-
-                                <div
-                                          class="wrapper-img flex flex-direction-column align-items-center">
-                                    <img class="casa" src="img/casa-funcionamento.jpg">
-                                    <img class="corpo" src="img/corpo-funcionamento.jpg">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!--
-
-                    <div class="flex align-items-center">
-                        <img class="logo" src="img/html.png">
-                        <img class="logo" src="img/css.png">
-                        <img class="logo" src="img/js.png">
-                    </div> -->
-                </div>
-
-                <div class="step slide" data-x="3900" data-y="0">
-                    <div>
-                        <h1><small>Exemplo</small></h1>
-
-                        <div class="flex">
-
-                            <p class="codepen" data-height="300" data-default-tab="html"
-                                      data-slug-hash="VwMRLev" data-user="magaldi"
-                                      style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                                <span>See the Pen <a href="https://codepen.io/magaldi/pen/VwMRLev">
-                                        Relógio (HTML)</a> by Eduardo (<a
-                                              href="https://codepen.io/magaldi">@magaldi</a>)
-                                    on <a href="https://codepen.io">CodePen</a>.</span>
-                            </p>
-
-                            <p class="codepen" data-height="300" data-default-tab="result"
-                                      data-slug-hash="VwMRLev" data-user="magaldi"
-                                      style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                                <span>See the Pen <a href="https://codepen.io/magaldi/pen/VwMRLev">
-                                        Relógio (HTML)</a> by Eduardo (<a
-                                              href="https://codepen.io/magaldi">@magaldi</a>)
-                                    on <a href="https://codepen.io">CodePen</a>.</span>
-                            </p>
-
-                        </div>
-
-                        <div class="flex">
-
-                            <p class="codepen" data-height="300" data-default-tab="css"
-                                      data-slug-hash="QWqobNm" data-user="magaldi"
-                                      style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                                <span>See the Pen <a href="https://codepen.io/magaldi/pen/QWqobNm">
-                                        Relógio (HTML + CSS)</a> by Eduardo (<a
-                                              href="https://codepen.io/magaldi">@magaldi</a>)
-                                    on <a href="https://codepen.io">CodePen</a>.</span>
-                            </p>
-
-                            <p class="codepen" data-height="300" data-default-tab="result"
-                                      data-slug-hash="QWqobNm" data-user="magaldi"
-                                      style="height: 300px; box-sizing: border-box; display: flex; align-items: center; justify-content: center; border: 2px solid; margin: 1em 0; padding: 1em;">
-                                <span>See the Pen <a href="https://codepen.io/magaldi/pen/QWqobNm">
-                                        Relógio (HTML + CSS)</a> by Eduardo (<a
-                                              href="https://codepen.io/magaldi">@magaldi</a>)
-                                    on <a href="https://codepen.io">CodePen</a>.</span>
-                            </p>
-
-                        </div>
-
-                        <script async
-                                  src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
-                    </div>
-
-                    <!--
 
                     <div class="flex align-items-center">
                         <img class="logo" src="img/html.png">
@@ -421,7 +348,7 @@
 -->
         <script src="js/impress.js"></script>
         <script>impress().init();</script>
-        <script>impress().goto(3);</script>
+        <script>impress().goto(0);</script>
 
         <!--
 
