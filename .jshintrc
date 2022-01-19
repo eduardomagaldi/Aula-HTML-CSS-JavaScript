@@ -11,7 +11,8 @@
 	"expr": true,
 	"immed": true,
 	"noarg": true,
-	"quotmark": "double",
+	"quotmark": "single",
+	"quotes": "single",
 	"undef": true,
 	"unused": true
 }

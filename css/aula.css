@@ -208,6 +208,42 @@ code {
     font-size: 20px;
 }
 
+.error {
+    color: red !important;
+}
+
+.meu-hljs {
+    color: #f8f8f2;
+    background: #272822;
+    display: block;
+    padding: 1em;
+}
+
+.pulse {
+    animation: pulse 1.5s infinite;
+    display: inline-block;
+}
+
+@keyframes pulse {
+	0% {
+		transform: scale(1);
+	}
+
+	70% {
+		transform: translate(40%, 0) scale(1.6);
+	}
+
+	100% {
+		transform: scale(1);
+	}
+}
+
+/* .codigo pre {
+    border: none;
+    color: #f8f8f2;
+    background: #272822;
+} */
+
 /*
 .scaling {
     -webkit-transform: scale(0);

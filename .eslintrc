@@ -240,7 +240,7 @@ module.exports = {
         "quote-props": "off",
         "quotes": [
             "error",
-            "double"
+            "single"
         ],
         "radix": "error",
         "require-atomic-updates": "error",
@@ -267,7 +267,7 @@ module.exports = {
         "space-before-function-paren": "off",
         "space-in-parens": [
             "error",
-            "always"
+            "never"
         ],
         "space-infix-ops": "error",
         "space-unary-ops": "error",

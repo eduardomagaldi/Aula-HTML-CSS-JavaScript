@@ -1,0 +1,582 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=1024" />
+        <title>Introdução à programação Front-end</title>
+
+        <link href="css/impress-common.css"
+            rel="stylesheet" />
+        <link href="css/impress-demo.css"
+            rel="stylesheet" />
+        <link href="css/aula.css"
+            rel="stylesheet" />
+
+        <link rel="shortcut icon"
+            href="favicon.png" />
+
+        <link rel="preconnect"
+            href="https://fonts.googleapis.com">
+        <link rel="preconnect"
+            href="https://fonts.gstatic.com"
+            crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&display=swap"
+            rel="stylesheet">
+
+        <link rel="stylesheet"
+            href="css/monokai.min.css">
+    </head>
+
+    <body class="impress-not-supported">
+        <div class="wrapper-main">
+            <div id="impress"
+                data-transition-duration="1000"
+                data-width="1800"
+                data-height="768"
+                data-max-scale="3"
+                data-min-scale="0"
+                data-perspective="1000">
+
+
+                <div class="step slide">
+                    <div>
+                        <h1>
+                            <strong class="html">HTML</strong>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-2">
+                            <strong class="html">HyperText Markup
+                                <br />Language</strong>
+                        </h1>
+
+                        <p class="html mb-1">Linguagem de Marcação de Hipertexto
+                        </p>
+                        <p class="html light">Não é uma linguagem de
+                            programação
+                        </p>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-2">
+                            <small class="html">HTML é formado por
+                            </small><br />
+                            <strong class="html">TAGS</strong>
+                        </h1>
+
+                        <div class="wrapper-anatomia">
+                            <pre>
+                                <code class="language-html"><!--
+                                -->&lt;tag&gt;conteúdo&lt;/tag&gt;
+                                </code>
+                            </pre>
+
+                            <small
+                                class="indicador html abertura">ABERTURA</small>
+                            <small
+                                class="indicador html fechamento">FECHAMENTO</small>
+                            <small
+                                class="indicador html elemento">ELEMENTO</small>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <strong class="html">Tags de texto</strong>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> P</strong>
+                            <small class="html">(paragraph)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;p&gt;este é um parágrafo&lt;/p&gt;
+                            </code>
+                        </pre>
+
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> strong</strong>
+                            <small class="html">(negrito)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;strong&gt;texto em negrito&lt;/strong&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> em</strong>
+                            <small class="html">(emphasis)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;em&gt;texto em itálico&lt;/em&gt;
+                            </code>
+                        </pre>
+
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> hr</strong>
+                            <small class="html">(horizontal ruler)</small><br />
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->&lt;hr&gt;<!--
+                            --></code><!--
+                            --></pre>
+
+                        <small class="html mb-2">Não necessita de
+                            fechamento</small>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> br</strong>
+                            <small class="html">(line break)</small><br />
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->&lt;br&gt;<!--
+                            --></code><!--
+                            --></pre>
+
+                        <small class="html mb-2">Não necessita de
+                            fechamento</small>
+
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> h1</strong>
+                            <small class="html">(heading 1)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;h1&gt;título nível 1&lt;/h1&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> h2 <small
+                                    class="html">a</small>
+                                h6</strong>
+                            <small class="html">(heading 2 a 6)</small><br />
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->&lt;h2&gt;título nível 2&lt;/h2&gt;<!--
+                            --></code><!--
+                        --></pre>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->...<!--
+                            --></code><!--
+                        --></pre>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;h6&gt;título nível 6&lt;/h6&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> ul</strong>
+                            <small class="html">(unordered list - lista
+                                desordenada) e</small>
+                            <strong class="html"> li</strong> <small
+                                class="html">(list item - item
+                                de lista)</small>
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;ul&gt;
+                            &nbsp;&nbsp;&lt;li&gt;item 1&lt;/li&gt;
+                            &nbsp;&nbsp;&lt;li&gt;item 2&lt;/li&gt;
+                            &lt;/ul&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">Atenção:&nbsp;</small>
+                            <strong class="html">Identação</strong>
+                        </h1>
+
+                        <div class="flex">
+                            <pre>
+                                <code class="language-html"><!--
+                                -->&lt;ul&gt;
+                                &lt;li&gt;item 1&lt;/li&gt;
+                                &lt;li&gt;
+                                &lt;ul&gt;
+                                &lt;li&gt;item 1&lt;/li&gt;
+                                &lt;li&gt;item 2&lt;/li&gt;
+                                &lt;/ul&gt;
+                                &lt;/li&gt;
+                                &lt;/ul&gt;
+                                </code>
+                            </pre>
+
+                            <pre>
+                                <code class="language-html"><!--
+                                -->&lt;ul&gt;
+                                |___&lt;li&gt;item 1&lt;/li&gt;
+                                |___&lt;li&gt;
+                                |___|___&lt;ul&gt;
+                                |___|___|___&lt;li&gt;item 1&lt;/li&gt;
+                                |___|___|___&lt;li&gt;item 2&lt;/li&gt;
+                                |___|___&lt;/ul&gt;
+                                |___&lt;/li&gt;
+                                &lt;/ul&gt;
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">Atenção:&nbsp;</small>
+                            <strong class="html">Algo quebrado?</strong>
+                        </h1>
+
+                        <p>Você tem certeza que fechou corretamente todas as
+                            tags?</p>
+
+                        <!-- <pre class="codigo">
+                            <code class="nohighlight">&lt;ul&gt;
+                            |___&lt;li&gt;item 1&lt;/li&gt;
+                            |___&lt;li&gt;
+                            |___|___&lt;ul&gt;
+                            |___|___|___&lt;li&gt;item 1&lt;/li&gt;
+                            |___|___|___&lt;li&gt;item 2<span class="error nohighlight">&lt;li&gt;</span>
+                            |___|___&lt;/ul&gt;
+                            |___&lt;/li&gt;
+                            &lt;/ul&gt;
+                            </code>
+                        </pre> -->
+
+                        <pre>
+                            <code class="nohighlight xlanguage-html meu-hljs xlanguage-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                            &nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>item 1<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                            &nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">ul</span>&gt;</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>item 1<span class="hljs-tag error pulse">&lt;li&gt;</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;<span class="hljs-name">li</span>&gt;</span>item 2<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                            &nbsp;&nbsp;<span class="hljs-tag">&lt;/<span class="hljs-name">li</span>&gt;</span>
+                            <span class="hljs-tag">&lt;/<span class="hljs-name">ul</span>&gt;</span>
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> ol</strong>
+                            <small class="html">(ordered list - lista
+                                ordenada)</small>
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;ol&gt;
+                            &nbsp;&nbsp;&lt;li&gt;item 1&lt;/li&gt;
+                            &nbsp;&nbsp;&lt;li&gt;item 2&lt;/li&gt;
+                            &lt;/ol&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <strong class="html">tags de formulário</strong>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> input</strong>
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;input&gt;
+                            </code>
+                        </pre>
+
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> textarea</strong>
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->&lt;textarea&gt;texto&lt;/textarea&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> select</strong>
+                            <small class="html"> e</small>
+                            <strong class="html"> option</strong>
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;select&gt;
+                            &nbsp;&nbsp;&lt;option&gt;opção 1&lt;/option&gt;
+                            &nbsp;&nbsp;&lt;option&gt;opção 2&lt;/option&gt;
+                            &lt;/select&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> button</strong>
+                            <small class="html">(botão)</small><br />
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html"><!--
+                            -->&lt;button&gt;salvar&lt;/button&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <strong class="html">Tags de tabela</strong>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> table</strong>
+                            <small class="html">,</small>
+                            <strong class="html"> tr</strong>
+                            <small class="html">,</small>
+                            <strong class="html"> th</strong>
+                            <small class="html"> e</small>
+                            <strong class="html"> td</strong>
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html smaller"><!--
+                            -->&lt;table&gt;
+                            &nbsp;&nbsp;&lt;tr&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Nome&lt;/th&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;th&gt;Idade&lt;/th&gt;
+                            &nbsp;&nbsp;&lt;/tr&gt;
+                            &nbsp;&nbsp;&lt;tr&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;Maria&lt;/td&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;30&lt;/td&gt;
+                            &nbsp;&nbsp;&lt;/tr&gt;
+                            &nbsp;&nbsp;&lt;tr&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;João&lt;/td&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;td&gt;40&lt;/td&gt;
+                            &nbsp;&nbsp;&lt;/tr&gt;
+                            &lt;/table&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-0">
+                            <strong class="html">Tags de estrutura</strong>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> html</strong>
+                            <small class="html">,</small>
+                            <strong class="html"> head</strong>
+                            <small class="html">,</small>
+                            <strong class="html"> title</strong>
+                            <small class="html"> e</small>
+                            <strong class="html"> body</strong>
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html smaller"><!--
+                            -->&lt;html&gt;
+                            &nbsp;&nbsp;&lt;head&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;title&gt;Título da página&lt;/title&gt;
+                            &nbsp;&nbsp;&lt;/head&gt;
+                            &nbsp;&nbsp;&lt;body&gt;
+                            &nbsp;&nbsp;&nbsp;&nbsp;&lt;p&gt;conteúdo&lt;/p&gt;
+                            &nbsp;&nbsp;&lt;/body&gt;
+                            &lt;/html&gt;
+                            </code>
+                        </pre>
+
+                        <h1 class="mb-1">
+                            <small class="html">tags&nbsp;</small>
+                            <strong class="html"> div</strong>
+                            <small class="html"> e</small>
+                            <strong class="html"> span</strong>
+                        </h1>
+
+                        <pre class="mb-0">
+                            <code class="language-html smaller"><!--
+                            -->&lt;div&gt;&lt;/div&gt;
+                            &lt;span&gt;&lt;/span&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-3">
+                            <strong class="html">Atributos</strong>
+                        </h1>
+
+                        <div class="wrapper-anatomia">
+                            <pre>
+                                <code class="language-html"><!--
+                                -->&lt;tag atributo="valor"&gt;conteúdo&lt;/tag&gt;
+                                </code>
+                            </pre>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> A</strong>
+                            <small class="html">(anchor)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;a href="google.com"&gt;este é um link&lt;/a&gt;
+                            </code>
+                        </pre>
+
+                        <h1 class="mb-1">
+                            <small class="html">tag&nbsp;</small>
+                            <strong class="html"> img</strong>
+                            <small class="html">(imagem)</small><br />
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;img src="img.jpg" alt="minha imagem"&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-1">
+                            <strong class="html">Comentário</strong>
+                        </h1>
+
+                        <pre>
+                            <code class="language-html"><!--
+                            -->&lt;p&gt;parágrafo&lt;/p&gt;
+                            &lt;!--&lt;p&gt;parágrafo comentado&lt;/p&gt;--&gt;
+                            </code>
+                        </pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <a href="https://www.w3schools.com/TAGS/ref_byfunc.asp"
+                            target="_blank">Todas
+                            as tags por
+                            categoria
+                        </a>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <a href="index.html#/o-que-e-o-que">Voltar</a>
+                </div>
+            </div>
+        </div>
+
+        <script src="js/auto-x-positioning.js"></script>
+        <script src="js/impress.js"></script>
+        <script src="js/highlight.min.js"></script>
+        <script src="js/init.js"></script>
+        <!-- <script>impress().goto(0);</script> -->
+    </body>
+</html>
