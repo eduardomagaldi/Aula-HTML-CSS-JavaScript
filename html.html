@@ -2,43 +2,24 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <link href="css/no-fouc.css"
+            rel="stylesheet" />
         <meta name="viewport"
             content="width=1024" />
-        <title>Introdução à programação Front-end</title>
-
-        <link href="css/impress-common.css"
-            rel="stylesheet" />
-        <link href="css/impress-demo.css"
-            rel="stylesheet" />
-        <link href="css/aula.css"
-            rel="stylesheet" />
-
-        <link rel="shortcut icon"
-            href="favicon.png" />
-
-        <link rel="preconnect"
-            href="https://fonts.googleapis.com">
-        <link rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&display=swap"
-            rel="stylesheet">
-
-        <link rel="stylesheet"
-            href="css/monokai.min.css">
+        <script src="js/add-styles.js"></script>
+        <title>HTML</title>
     </head>
 
     <body class="impress-not-supported">
         <div class="wrapper-main">
             <div id="impress"
+                data-navigation="off"
                 data-transition-duration="1000"
                 data-width="1800"
                 data-height="768"
-                data-max-scale="3"
-                data-min-scale="0"
+                data-max-scale="1"
+                data-min-scale="1"
                 data-perspective="1000">
-
 
                 <div class="step slide">
                     <div>
@@ -52,7 +33,7 @@
                     <div>
                         <h1 class="mb-2">
                             <strong class="html">HyperText Markup
-                                <br />Language</strong>
+                                Language</strong>
                         </h1>
 
                         <p class="html mb-1">Linguagem de Marcação de Hipertexto
@@ -65,16 +46,149 @@
 
                 <div class="step slide">
                     <div>
-                        <h1 class="mb-2">
+                        <h1 class="mb-1">
                             <small class="html">HTML é formado por
                             </small><br />
                             <strong class="html">TAGS</strong>
                         </h1>
 
-                        <div class="wrapper-anatomia">
+                        <!-- <div id="wrapper-code"></div> -->
+                        <div id="wrapper-page"></div>
+
+                        <button id="message_button">button</button>
+
+                        <div id="results"></div>
+
+                        <script>
+                            const main = async () => {
+                                const resp = await fetch('iframe.html')
+                                const html = await resp.text()
+
+                                const iframePage = document.createElement('iframe')
+                                iframePage.setAttribute('id', 'the_iframe');
+                                // const iframeCode = document.createElement('iframe')
+
+                                const wp = document.querySelector('#wrapper-page')
+                                // const wc = document.querySelector('#wrapper-code')
+
+                                wp.appendChild(iframePage)
+                                // wc.appendChild(iframeCode)
+
+                                iframePage.contentWindow.document.open()
+                                iframePage.contentWindow.document.write(html)
+                                iframePage.contentWindow.document.close()
+
+                                // addEventListener support for IE8
+                                function bindEvent(element, eventName, eventHandler) {
+                                    if (element.addEventListener) {
+                                        element.addEventListener(eventName, eventHandler, false);
+                                    } else if (element.attachEvent) {
+                                        element.attachEvent('on' + eventName, eventHandler);
+                                    }
+                                }
+
+                                // var iframeSource = 'iframe.html';
+
+                                // Create the iframe
+                                // var iframe = document.createElement('iframe');
+                                // iframe.setAttribute('src', iframeSource);
+                                // iframe.setAttribute('id', 'the_iframe');
+                                // iframe.style.width = 450 + 'px';
+                                // iframe.style.height = 200 + 'px';
+                                // document.body.appendChild(iframe);
+
+                                // Send a message to the child iframe
+                                var iframeEl = document.getElementById('the_iframe'),
+                                    messageButton = document.getElementById('message_button'),
+                                    results = document.getElementById('results');
+
+                                // Send a message to the child iframe
+                                var sendMessage = function (msg) {
+                                    // Make sure you are sending a string, and to stringify JSON
+                                    iframeEl.contentWindow.postMessage(msg, '*');
+                                };
+
+                                // Send random messge data on every button click
+                                bindEvent(messageButton, 'click', function (e) {
+                                    var random = Math.random();
+                                    console.log('e', e);
+                                    sendMessage('' + random);
+                                });
+
+                                // Listen to message from child window
+                                bindEvent(window, 'message', function (e) {
+
+                                    results.innerHTML = e.data;
+                                });
+                            }
+
+                            setTimeout(() => {
+                                main()
+                                //     const conteudo = `
+                                //         <p style="color: red;">Foo</p>
+                                //     `;
+
+                                //     const textArea = '<textarea>' + conteudo.trim() + '</textarea>'
+
+                                //     const iframePage = document.createElement('iframe');
+                                //     const iframeCode = document.createElement('iframe');
+
+                                //     const wp = document.querySelector('#wrapper-page')
+                                //     const wc = document.querySelector('#wrapper-code')
+
+                                //     wc.appendChild(iframeCode)
+                                //     wp.appendChild(iframePage)
+
+                                //     iframePage.contentWindow.document.open();
+                                //     iframePage.contentWindow.document.write(getHtml(conteudo));
+                                //     iframePage.contentWindow.document.close();
+
+                                //     iframeCode.contentWindow.document.open();
+                                //     iframeCode.contentWindow.document.write(getHtml(textArea, 0, true));
+                                //     iframeCode.contentWindow.document.close();
+
+                                //     function getHtml(conteudo, margin, textarea) {
+                                //         let marginString = ''
+                                //         if (margin !== undefined) {
+                                //             marginString = `margin: ${margin}`
+                                //         }
+
+                                //         let textareaString = ''
+                                //         if (textarea) {
+                                //             textareaString = `
+                                //                 textarea {
+                                //                     width: 100%;
+                                //                     height: 100%;
+                                //                 }
+                                //             `
+                                //         }
+
+                                //         return `
+                                //             <html>
+                                //                 <head>
+                                //                     <style>
+                                //                         body {
+                                //                             background: white;
+                                //                             ${marginString}
+                                //                         }
+
+                                //                         ${textareaString}
+                                //                     </style>
+                                //                 </head>
+
+                                //                 <body>
+                                //                     ${conteudo}
+                                //                 </body>
+                                //             </html>
+                                //         `
+                                //     }
+                            }, 100)
+                        </script>
+
+                        <!-- <div class="wrapper-anatomia">
                             <pre>
-                                <code class="language-html"><!--
-                                -->&lt;tag&gt;conteúdo&lt;/tag&gt;
+                                <code class="language-html"><!- -
+                                - ->
                                 </code>
                             </pre>
 
@@ -84,7 +198,11 @@
                                 class="indicador html fechamento">FECHAMENTO</small>
                             <small
                                 class="indicador html elemento">ELEMENTO</small>
-                        </div>
+                        </div> -->
+
+                        <!-- <textarea id='editor'><tag>conteúdo</tag></textarea> -->
+
+
                     </div>
                 </div>
 
@@ -573,10 +691,6 @@
             </div>
         </div>
 
-        <script src="js/auto-x-positioning.js"></script>
-        <script src="js/impress.js"></script>
-        <script src="js/highlight.min.js"></script>
-        <script src="js/init.js"></script>
-        <!-- <script>impress().goto(0);</script> -->
+        <script src="js/add-scripts.js"></script>
     </body>
 </html>

@@ -43,6 +43,7 @@
     "terser": "^4.6.7"
   },
   "dependencies": {
+    "express": "^4.17.2",
     "highlight.js": "^11.4.0"
   }
 }

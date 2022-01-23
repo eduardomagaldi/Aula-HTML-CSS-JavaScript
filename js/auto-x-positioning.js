@@ -1,5 +1,5 @@
 const slides = document.querySelectorAll('.slide')
-const diff = 1300
+const diff = 1100
 let xPosition = 0
 const xPositionsByYPosition = {}
 

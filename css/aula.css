@@ -1,8 +1,8 @@
 body {
-    color: rgba(0,71,255,1);
+    color: white;
     background: linear-gradient(135deg, rgb(0, 50, 177) 0%, rgb(0, 114, 21) 100%);
     font-family: 'Oswald', sans-serif;
-    font-size: 40px;
+    font-size: 30px;
 }
 
 .flex {
@@ -30,20 +30,24 @@ p {
     line-height: 1;
 }
 
-.step {
-}
-
 .slide {
     text-align: center;
     border-radius: 40px;
     padding: 60px;
-    min-width: 1024px;
-    min-height: 768px;
+    width: 820px;
+    height: 615px;
+    background-color: #25194B;
+}
+
+.slide > div {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: #25194B;
+    flex-direction: column;
+    position: relative;
 }
 
 small {
@@ -75,7 +79,7 @@ a:hover {
 }
 
 h1 {
-    font-size: 72px;
+    font-size: 150%;
     text-transform: uppercase;
     padding-bottom: 5px;
     line-height: 1.2;
@@ -94,20 +98,12 @@ h1 {
 }
 
 .mb-2 {
-    margin-bottom: 40px;
+    margin-bottom: 20px !important;
 }
 
 .mb-3 {
-    margin-bottom: 60px;
+    margin-bottom: 30px !important;
 }
-
-.logo {
-    width: 50px;
-}
-
-/* .impress-enabled .step {
-    opacity: .1;
-} */
 
 .image {
     max-width: 100%;
@@ -140,7 +136,7 @@ h1 {
 
 .casa,
 .corpo {
-    width: 100px;
+    width: 90px;
 }
 
 .column {
@@ -224,6 +220,93 @@ code {
     display: inline-block;
 }
 
+.text-right {
+    text-align: right;
+    display: block;
+}
+
+.nivel1 {
+    font-size: 60%;
+}
+
+.nivel2 {
+    font-size: 70%;
+}
+
+.nivel3 {
+    font-size: 80%;
+}
+
+.nivel4 {
+    font-size: 90%;
+}
+
+.nivel5 {
+    font-size: 100%;
+}
+
+.nivel6 {
+    font-size: 100%;
+    display: inline-block;
+}
+
+.importancia {
+    color: rgb(0, 122, 163);
+    display: block;
+}
+
+.nivel1 .blur {
+    background: white;
+    display: inline-block;
+}
+
+.nivel2 .blur {
+    filter: blur(5px);
+}
+
+.nivel3 .blur {
+    filter: blur(6px);
+}
+
+.nivel4 .blur {
+    filter: blur(6px);
+}
+
+.nivel5 .blur {
+    filter: blur(6px);
+}
+
+.nivel6 .blur {
+    filter: blur(7px);
+}
+
+.blur {
+    text-transform: uppercase;
+    color: white;
+}
+
+.width-full {
+    width: 100% !important;
+}
+
+.CodeMirror-gutter {
+    background: #3f403b;
+}
+
+iframe {
+    border: none;
+}
+
+.CodeMirror {
+    max-width: 100%;
+    width: calc(100% - 2px);
+    font-size: 20px;
+    height: auto;
+    border: 1px solid #585a4d;
+
+    border-radius: 10px;
+}
+
 @keyframes pulse {
 	0% {
 		transform: scale(1);
@@ -236,6 +319,22 @@ code {
 	100% {
 		transform: scale(1);
 	}
+}
+
+.flex.absolute {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-left: -300px;
+    margin-top: -150px;
+}
+
+.flex.absolute.back {
+    transform: translate(-50px, -50px);
+}
+
+.flex.absolute.front {
+    transform: translate(50px, 50px);
 }
 
 /* .codigo pre {

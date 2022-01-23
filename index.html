@@ -2,31 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <link href="css/no-fouc.css"
+            rel="stylesheet" />
         <meta name="viewport"
             content="width=1024" />
+        <script src="js/add-styles.js"></script>
         <title>Introdução à programação Front-end</title>
-
-        <link href="css/impress-common.css"
-            rel="stylesheet" />
-        <link href="css/impress-demo.css"
-            rel="stylesheet" />
-        <link href="css/aula.css"
-            rel="stylesheet" />
-
-        <link rel="shortcut icon"
-            href="favicon.png" />
-
-        <link rel="preconnect"
-            href="https://fonts.googleapis.com">
-        <link rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&display=swap"
-            rel="stylesheet">
-
-        <link rel="stylesheet"
-            href="css/monokai.min.css">
     </head>
 
     <body class="impress-not-supported">
@@ -35,8 +16,8 @@
                 data-transition-duration="1000"
                 data-width="1800"
                 data-height="768"
-                data-max-scale="3"
-                data-min-scale="0"
+                data-max-scale="1"
+                data-min-scale="1"
                 data-perspective="1000">
 
                 <div class="step slide">
@@ -56,7 +37,7 @@
 
                 <div class="step slide">
                     <div>
-                        <h1 class="mb-2">
+                        <h1 class="mb-1">
                             <span>
                                 <strong>Front-end</strong>
                                 <small>vs</small>
@@ -78,7 +59,8 @@
                                 <h1>
                                     <span class="html">HTML</span>
                                 </h1>
-                                <p class="html mb-2">Estrutura e Conteúdo</p>
+                                <p class="html mb-2">Estrutura e <br />Conteúdo
+                                </p>
 
                                 <div
                                     class="wrapper-img flex flex-direction-column align-items-center">
@@ -127,8 +109,7 @@
 
                 <div class="step slide">
                     <div>
-                        <div class="flex">
-
+                        <div class="flex absolute back">
                             <p class="codepen"
                                 data-height="300"
                                 data-default-tab="html"
@@ -156,11 +137,9 @@
                                     on <a
                                         href="https://codepen.io">CodePen</a>.</span>
                             </p>
-
                         </div>
 
-                        <div class="flex">
-
+                        <div class="flex absolute front">
                             <p class="codepen"
                                 data-height="300"
                                 data-default-tab="css"
@@ -188,7 +167,6 @@
                                     on <a
                                         href="https://codepen.io">CodePen</a>.</span>
                             </p>
-
                         </div>
 
                         <script async
@@ -197,19 +175,27 @@
                 </div>
 
                 <div class="step slide">
-                    <ul>
-                        <li><a href="html.html">Ir para HTML</a></li>
-                        <li><a href="css.html">Ir para CSS</a></li>
-                        <li><a href="js.html">Ir para JavaScript</a></li>
-                    </ul>
+                    <div>
+                        <ul>
+                            <li><a href="html.html">Ir para HTML</a></li>
+                            <li><a href="css.html">Ir para CSS</a></li>
+                            <li><a href="js.html">Ir para JavaScript</a></li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <script src="js/auto-x-positioning.js"></script>
-        <script src="js/impress.js"></script>
-        <script src="js/highlight.min.js"></script>
-        <script src="js/init.js"></script>
+        <script src="js/add-scripts.js"></script>
+
+        <!-- <script src="js/auto-x-positioning.js"></script>
+        <script src=""></script>
+        <script src=""></script>
+        <script src="js/init.js"></script> -->
+
+
+
+
         <!-- <script>impress().goto(0);</script> -->
     </body>
 </html>
