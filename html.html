@@ -47,143 +47,21 @@
                 <div class="step slide">
                     <div>
                         <h1 class="mb-1">
-                            <small class="html">HTML é formado por
-                            </small><br />
+                            <small class="html">HTML é formado por</small>
                             <strong class="html">TAGS</strong>
                         </h1>
 
-                        <!-- <div id="wrapper-code"></div> -->
-                        <div id="wrapper-page"></div>
+                        <div class="codeDynamic"
+                            data-url="tag">
+                            <div class="code"></div>
+                            <div class="page"></div>
+                        </div>
 
-                        <button id="message_button">button</button>
-
-                        <div id="results"></div>
-
-                        <script>
-                            const main = async () => {
-                                const resp = await fetch('iframe.html')
-                                const html = await resp.text()
-
-                                const iframePage = document.createElement('iframe')
-                                iframePage.setAttribute('id', 'the_iframe');
-                                // const iframeCode = document.createElement('iframe')
-
-                                const wp = document.querySelector('#wrapper-page')
-                                // const wc = document.querySelector('#wrapper-code')
-
-                                wp.appendChild(iframePage)
-                                // wc.appendChild(iframeCode)
-
-                                iframePage.contentWindow.document.open()
-                                iframePage.contentWindow.document.write(html)
-                                iframePage.contentWindow.document.close()
-
-                                // addEventListener support for IE8
-                                function bindEvent(element, eventName, eventHandler) {
-                                    if (element.addEventListener) {
-                                        element.addEventListener(eventName, eventHandler, false);
-                                    } else if (element.attachEvent) {
-                                        element.attachEvent('on' + eventName, eventHandler);
-                                    }
-                                }
-
-                                // var iframeSource = 'iframe.html';
-
-                                // Create the iframe
-                                // var iframe = document.createElement('iframe');
-                                // iframe.setAttribute('src', iframeSource);
-                                // iframe.setAttribute('id', 'the_iframe');
-                                // iframe.style.width = 450 + 'px';
-                                // iframe.style.height = 200 + 'px';
-                                // document.body.appendChild(iframe);
-
-                                // Send a message to the child iframe
-                                var iframeEl = document.getElementById('the_iframe'),
-                                    messageButton = document.getElementById('message_button'),
-                                    results = document.getElementById('results');
-
-                                // Send a message to the child iframe
-                                var sendMessage = function (msg) {
-                                    // Make sure you are sending a string, and to stringify JSON
-                                    iframeEl.contentWindow.postMessage(msg, '*');
-                                };
-
-                                // Send random messge data on every button click
-                                bindEvent(messageButton, 'click', function (e) {
-                                    var random = Math.random();
-                                    console.log('e', e);
-                                    sendMessage('' + random);
-                                });
-
-                                // Listen to message from child window
-                                bindEvent(window, 'message', function (e) {
-
-                                    results.innerHTML = e.data;
-                                });
-                            }
-
-                            setTimeout(() => {
-                                main()
-                                //     const conteudo = `
-                                //         <p style="color: red;">Foo</p>
-                                //     `;
-
-                                //     const textArea = '<textarea>' + conteudo.trim() + '</textarea>'
-
-                                //     const iframePage = document.createElement('iframe');
-                                //     const iframeCode = document.createElement('iframe');
-
-                                //     const wp = document.querySelector('#wrapper-page')
-                                //     const wc = document.querySelector('#wrapper-code')
-
-                                //     wc.appendChild(iframeCode)
-                                //     wp.appendChild(iframePage)
-
-                                //     iframePage.contentWindow.document.open();
-                                //     iframePage.contentWindow.document.write(getHtml(conteudo));
-                                //     iframePage.contentWindow.document.close();
-
-                                //     iframeCode.contentWindow.document.open();
-                                //     iframeCode.contentWindow.document.write(getHtml(textArea, 0, true));
-                                //     iframeCode.contentWindow.document.close();
-
-                                //     function getHtml(conteudo, margin, textarea) {
-                                //         let marginString = ''
-                                //         if (margin !== undefined) {
-                                //             marginString = `margin: ${margin}`
-                                //         }
-
-                                //         let textareaString = ''
-                                //         if (textarea) {
-                                //             textareaString = `
-                                //                 textarea {
-                                //                     width: 100%;
-                                //                     height: 100%;
-                                //                 }
-                                //             `
-                                //         }
-
-                                //         return `
-                                //             <html>
-                                //                 <head>
-                                //                     <style>
-                                //                         body {
-                                //                             background: white;
-                                //                             ${marginString}
-                                //                         }
-
-                                //                         ${textareaString}
-                                //                     </style>
-                                //                 </head>
-
-                                //                 <body>
-                                //                     ${conteudo}
-                                //                 </body>
-                                //             </html>
-                                //         `
-                                //     }
-                            }, 100)
-                        </script>
+                        <div class="codeDynamic"
+                            data-url="p">
+                            <div class="code"></div>
+                            <div class="page"></div>
+                        </div>
 
                         <!-- <div class="wrapper-anatomia">
                             <pre>
@@ -201,8 +79,6 @@
                         </div> -->
 
                         <!-- <textarea id='editor'><tag>conteúdo</tag></textarea> -->
-
-
                     </div>
                 </div>
 
@@ -692,5 +568,8 @@
         </div>
 
         <script src="js/add-scripts.js"></script>
+
+        <script>
+        </script>
     </body>
 </html>

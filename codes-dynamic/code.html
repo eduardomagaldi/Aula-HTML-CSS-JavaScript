@@ -1,17 +1,51 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
     <head>
         <meta charset="utf-8">
         <title>iframe Window</title>
         <style>
             body {
-                background-color: #D53C2F;
-                color: white;
+                background-color: transparent;
+                margin: 0;
+            }
+        </style>
+
+        <link rel="stylesheet"
+            href="css/codemirror.css">
+        <link rel="stylesheet"
+            href="css/monokai.css">
+        <style>
+            .CodeMirror-gutter {
+                background: #585a4d;
+            }
+
+            .cm-s-monokai .CodeMirror-linenumber {
+                color: #303030;
+            }
+
+            .CodeMirror {
+                max-width: 100%;
+                font-size: 30px;
+                height: auto;
+                border: 1px solid #585a4d;
+                border-radius: 10px 10px 0 0;
+            }
+
+            .line-highlight .CodeMirror-linenumber {
+                color: red;
+            }
+
+            .center .CodeMirror-line>span {
+                text-align: center !important;
+                display: block;
             }
         </style>
     </head>
     <body>
-        <p>Send Message: <button id="message_button">Hi parent</button></p>
+        <div id="editor"
+            class="center"></div>
+
+        <!-- <p>Send Message: <button id="message_button">Hi parent</button></p>
         <p>Got Message: <span id="results"></span></p>
 
         <script>
@@ -43,6 +77,7 @@
                 var random = Math.random();
                 sendMessage('' + random);
             });
-        </script>
+        </script> -->
+
     </body>
 </html>
