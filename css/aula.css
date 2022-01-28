@@ -37,17 +37,14 @@ p {
     width: 820px;
     height: 615px;
     background-color: #25194B;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .slide > div {
-    height: 100%;
     width: 100%;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    position: relative;
 }
 
 small {
@@ -226,27 +223,27 @@ code {
 }
 
 .nivel1 {
-    font-size: 60%;
+    font-size: 45%;
 }
 
 .nivel2 {
-    font-size: 70%;
+    font-size: 50%;
 }
 
 .nivel3 {
-    font-size: 80%;
+    font-size: 55%;
 }
 
 .nivel4 {
-    font-size: 90%;
+    font-size: 60%;
 }
 
 .nivel5 {
-    font-size: 100%;
+    font-size: 65%;
 }
 
 .nivel6 {
-    font-size: 100%;
+    font-size: 70%;
     display: inline-block;
 }
 
@@ -293,10 +290,8 @@ iframe {
     border: none;
 }
 
-#wrapper-page,
-#wrapper-page iframe,
-#wrapper-code,
-#wrapper-code iframe {
+.codeDynamic,
+.codeDynamic iframe {
     width: 100%;
     height: 100%;
 }

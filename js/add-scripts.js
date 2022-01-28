@@ -1,5 +1,5 @@
 addScript('js/auto-x-positioning.js')
-addScript('js/impress.js', () => {
+addScript('js/libs/impress.min.js', () => {
     impress().init();
 })
 addScript('js/messages.js', () => {

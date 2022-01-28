@@ -2,7 +2,6 @@
 <html>
     <head>
         <meta charset="utf-8">
-        <title>iframe Window</title>
         <style>
             body {
                 background-color: transparent;
@@ -14,6 +13,7 @@
             href="css/codemirror.css">
         <link rel="stylesheet"
             href="css/monokai.css">
+
         <style>
             .CodeMirror-gutter {
                 background: #585a4d;
@@ -42,42 +42,53 @@
         </style>
     </head>
     <body>
-        <div id="editor"
-            class="center"></div>
+        <div class="wrapper-body">
+            <div id="editor"></div>
+        </div>
 
-        <!-- <p>Send Message: <button id="message_button">Hi parent</button></p>
-        <p>Got Message: <span id="results"></span></p>
+        <script src="js/libs/codemirror.js"></script>
+        <script src="js/libs/xml.js"></script>
+        <script src="js/messages.js"></script>
 
         <script>
-            // addEventListener support for IE8
-            function bindEvent(element, eventName, eventHandler) {
-                if (element.addEventListener) {
-                    element.addEventListener(eventName, eventHandler, false);
-                } else if (element.attachEvent) {
-                    element.attachEvent('on' + eventName, eventHandler);
+            (() => {
+                if (!window.editor) {
+                    window.editor = document.querySelector('#editor')
                 }
-            }
 
-            // Send a message to the parent
-            var sendMessage = function (msg) {
-                // Make sure you are sending a string, and to stringify JSON
-                window.parent.postMessage(msg, '*');
-            };
+                const codeValue = `[[html]]`
 
-            var results = document.getElementById('results'),
-                messageButton = document.getElementById('message_button');
+                const cm = CodeMirror(
+                    window.editor,
+                    {
+                        value: codeValue,
+                        mode: "xml",
+                        lineNumbers: true,
+                        theme: 'monokai',
+                    }
+                )
 
-            // Listen to messages from parent window
-            bindEvent(window, 'message', function (e) {
-                results.innerHTML = e.data;
-            });
+                messages.send({
+                    type: 'code',
+                    value: codeValue,
+                    iframeId: window.frameElement.id,
+                })
 
-            // Send random message data on every button click
-            bindEvent(messageButton, 'click', function (e) {
-                var random = Math.random();
-                sendMessage('' + random);
-            });
-        </script> -->
+                const wrapperBody = document.querySelector('.wrapper-body')
+                messages.send({
+                    type: 'height',
+                    value: wrapperBody?.offsetHeight,
+                    iframeId: window.frameElement.id,
+                })
 
+                cm.on('change', () => {
+                    // messages.send({
+                    //     type: 'code',
+                    //     value: codeValue,
+                    //     iframeId: window.frameElement.id,
+                    // })
+                })
+            })();
+        </script>
     </body>
 </html>

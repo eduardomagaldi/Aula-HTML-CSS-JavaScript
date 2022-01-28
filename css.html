@@ -2,39 +2,12 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
+        <link href="css/no-fouc.css"
+            rel="stylesheet" />
         <meta name="viewport"
             content="width=1024" />
-        <title>Introdução à programação Front-end</title>
-
-        <link href="css/impress-common.css"
-            rel="stylesheet" />
-        <link href="css/impress-demo.css"
-            rel="stylesheet" />
-        <link href="css/aula.css"
-            rel="stylesheet" />
-
-        <link rel="shortcut icon"
-            href="favicon.png" />
-
-        <link rel="preconnect"
-            href="https://fonts.googleapis.com">
-        <link rel="preconnect"
-            href="https://fonts.gstatic.com"
-            crossorigin>
-        <link
-            href="https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&display=swap"
-            rel="stylesheet">
-
-        <link rel="stylesheet"
-            href="css/codemirror.css">
-
-        <link rel="stylesheet"
-            href="css/monokai.css">
-
-        <script src="js/codemirror.js"></script>
-        <script src="js/javascript.js"></script>
-        <script src="js/xml.js"></script>
-        <script src="js/css.js"></script>
+        <script src="js/add-styles.js"></script>
+        <title>CSS</title>
     </head>
 
     <body class="impress-not-supported">
@@ -60,8 +33,8 @@
                         <h1 class="mb-2">
                             <strong class="css">Cascading
                                 Style Sheets</strong>
-                            <small class="css">(Folhas de estilo em
-                                cascata)</small>
+                            <div><small class="css">(Folhas de estilo em
+                                    cascata)</small></div>
                         </h1>
 
                         <p class="css mb-1">Linguagem de Folhas de estilo</p>
@@ -78,16 +51,16 @@
                         </h1>
 
                         <pre>
-                            <code class="nohighlight xlanguage-html meu-hljs xlanguage-xml"><small class="importancia">Menor importância</small><!--
-                            --><span class="nivel1">1. <span>Folha de estilo do navegador</span></span>
-                            |__ <span class="nivel2">2. <span class="blur">Folha de estilo do usuário</span></span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel3">3. <span class="blur">Estilo externo (importado)</span></span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel4">4. <span class="blur">Estilo incorporado</span></span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel5">5. <span class="blur">Estilo inline</span></span>
-                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel6 mb-1">6. <span class="blur">Marcação !important</span></span>
-                            <span class="nivel6 importancia text-right">Maior importância</span><!--
-                        --></code>
-                        </pre>
+                            <code class="nohighlight xlanguage-html meu-hljs xlanguage-xml"><small class="importancia nivel1">Menor importância</small><!--
+                        --><span class="nivel1">1. <span>Folha de estilo do navegador</span></span>
+                        |__ <span class="nivel2">2. <span class="blur">Folha de estilo do usuário</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel3">3. <span class="blur">Estilo externo (importado)</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel4">4. <span class="blur">Estilo incorporado</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel5">5. <span class="blur">Estilo inline</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel6 mb-1">6. <span class="blur">Marcação !important</span></span>
+                        <span class="nivel6 importancia text-right">Maior importância</span><!--
+                        --></code><!--
+                    --></pre>
                     </div>
                 </div>
 
@@ -100,44 +73,88 @@
                             <small class="html">HTML</small>
                         </h1>
 
-                        <textarea id='editor'><span>span</span></textarea>
-
-                        <script>
-                            const editor = CodeMirror.fromTextArea(
-                                document.getElementById('editor'),
-                                {
-                                    mode: "xml",
-                                    lineNumbers: true,
-                                    theme: 'monokai',
-                                }
-                            );
-                            editor.save()
-
-                            editor.on('change', () => {
-                                console.info('editor.getValue()', editor.getValue());
-                            })
-                        </script>
+                        <div class="codeDynamic"
+                            id="atributo-style">
+                            <div class="code"></div>
+                            <div class="page"></div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="step slide">
                     <div>
-                        <h1 class="mb-3">
-                            <strong class="css">Atributo style do <span
-                                    class="html">html</span></strong>
+                        <h1 class="mb-2">
+                            <small class="css">Atributo</small>
+                            <strong class="css">STYLE</strong>
+                            <small class="css">do</small>
+                            <small class="html">HTML</small>
                         </h1>
 
-
+                        <pre>
+                            <code class="nohighlight xlanguage-html meu-hljs xlanguage-xml"><small class="importancia nivel1">Menor importância</small><!--
+                        --><span class="nivel1">1. <span>Folha de estilo do navegador</span></span>
+                        |__ <span class="nivel2">2. <span class="blur">Folha de estilo do usuário</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel3">3. <span class="blur">Estilo externo (importado)</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel4">4. <span class="blur">Estilo incorporado</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel5">5. <span>Estilo inline</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel6 mb-1">6. <span class="blur">Marcação !important</span></span>
+                        <span class="nivel6 importancia text-right">Maior importância</span><!--
+                        --></code><!--
+                    --></pre>
                     </div>
                 </div>
 
                 <div class="step slide">
                     <div>
-                        <a href="https://www.w3schools.com/TAGS/ref_byfunc.asp"
-                            target="_blank">Todas
-                            as tags por
-                            categoria
-                        </a>
+                        <h1 class="mb-2">
+                            <small class="css">Tag</small>
+                            <strong class="css">STYLE</strong>
+                            <small class="css">do</small>
+                            <small class="html">HTML</small>
+                        </h1>
+
+                        <div class="codeDynamic"
+                            id="tag-style">
+                            <div class="code"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-2">
+                            <small class="css">tag</small>
+                            <strong class="css">STYLE</strong>
+                            <small class="css">do</small>
+                            <small class="html">HTML</small>
+                        </h1>
+
+                        <pre>
+                            <code class="nohighlight xlanguage-html meu-hljs xlanguage-xml"><small class="importancia nivel1">Menor importância</small><!--
+                        --><span class="nivel1">1. <span>Folha de estilo do navegador</span></span>
+                        |__ <span class="nivel2">2. <span class="blur">Folha de estilo do usuário</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel3">3. <span class="blur">Estilo externo (importado)</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel4">4. <span>Estilo incorporado</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel5">5. <span>Estilo inline</span></span>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|__ <span class="nivel6 mb-1">6. <span class="blur">Marcação !important</span></span>
+                        <span class="nivel6 importancia text-right">Maior importância</span><!--
+                        --></code><!--
+                    --></pre>
+                    </div>
+                </div>
+
+                <div class="step slide">
+                    <div>
+                        <h1 class="mb-2">
+                            <small class="css">Sintaxe</small>
+                            <small class="css">do</small>
+                            <strong class="css">CSS</strong>
+                        </h1>
+
+                        <div class="codeDynamic"
+                            id="css-sintaxe">
+                            <div class="code"></div>
+                        </div>
                     </div>
                 </div>
 
@@ -147,13 +164,6 @@
             </div>
         </div>
 
-        <script src="js/auto-x-positioning.js"></script>
-        <script src="js/impress.js"></script>
-        <script src="js/highlight.min.js"></script>
-        <script src="js/init.js"></script>
-        <!-- <script>impress().goto(0);</script> -->
-
-        <script async
-            src="https://cpwebassets.codepen.io/assets/embed/ei.js"></script>
+        <script src="js/add-scripts.js"></script>
     </body>
 </html>

@@ -6,13 +6,33 @@
                 background-color: white;
                 font-size: 30px;
             }
+
+            .wrapper-body {
+                overflow: hidden;
+            }
+        </style>
+
+        <style>
+            [[css]]
         </style>
     </head>
     <body>
-        <div class="wrapperBody">
-            ${htmlContent.value}
+        <div class="wrapper-body">
+            [[html]]
         </div>
 
+        <script src="js/messages.js"></script>
 
+        <script>
+            (() => {
+                const wrapperBody = document.querySelector('html')
+
+                messages.send({
+                    type: 'height',
+                    value: wrapperBody?.offsetHeight,
+                    iframeId: window.frameElement.id,
+                })
+            })();
+        </script>
     </body>
 </html>
