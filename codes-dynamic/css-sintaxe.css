@@ -1,5 +1,5 @@
-seletor, /* seleciona qual elemento */
-seletor2 { /* receberá as propriedades */
+seletor, /* seleciona quais elementos */
+seletor2 { /* receberão as propriedades */
     color: blue;
     font-family: sans-serif;
 }

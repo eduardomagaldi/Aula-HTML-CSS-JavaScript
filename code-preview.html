@@ -1,0 +1,38 @@
+﻿<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport"
+            content="width=1024" />
+        <script src="js/add-styles-code-preview.js"></script>
+        <title>Preview de código</title>
+    </head>
+
+    <body>
+        <div class="codeDynamic open-html open-css open-js">
+            <div class="code"></div>
+            <div class="page"></div>
+        </div>
+
+        <script>
+            const hash = window.location.hash.replace('#', '')
+            if (!hash) {
+                document.body.innerHTML = '<span style="color: red;">#hash inválida.</span>'
+            } else {
+                const codeDynamic = document.querySelector('.codeDynamic')
+                codeDynamic.setAttribute('id', hash)
+
+                setTimeout(() => {
+                    addScript('js/add-scripts-code-preview.js')
+                }, 0)
+            }
+
+            function addScript(src, callback) {
+                const s = document.createElement('script')
+                s.setAttribute('src', src)
+                s.onload = callback
+                document.body.appendChild(s)
+            }
+        </script>
+    </body>
+</html>

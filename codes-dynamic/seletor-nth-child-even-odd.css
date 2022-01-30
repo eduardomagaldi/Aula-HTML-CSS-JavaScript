@@ -1,0 +1,7 @@
+body :nth-child(even) {
+    color: blue;
+}
+
+body :nth-child(odd) {
+    color: red;
+}

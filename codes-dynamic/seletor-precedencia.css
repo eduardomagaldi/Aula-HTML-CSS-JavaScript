@@ -1,0 +1,4 @@
+div ~ p { /* p que é precedido */
+    /* (imediatamente ou não) por uma div */
+    color: blue;
+}

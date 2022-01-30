@@ -43,6 +43,11 @@ p {
     justify-content: center;
 }
 
+.slide.large {
+    height: 664px;
+    width: 1240px;
+}
+
 .slide > div {
     width: 100%;
 }

@@ -1,0 +1,3 @@
+body :first-child { /* classe que começa com ":" */
+    color: blue; /* é chamada pseudo classe */
+}

@@ -103,7 +103,7 @@
             }
         </style>
     </head>
-    <body>
+    <body class="[[bodyClass]]">
         <div class="wrapper-body">
             <div id="editor-html"
                 class="editor">
@@ -192,15 +192,15 @@
                 })
 
                 const checkboxes = document.querySelectorAll("input[type=checkbox]")
-                checkboxes.forEach((checkbox) => {
-                    checkbox.addEventListener('change', function () {
-                        checkboxes.forEach((cb) => {
-                            if (cb !== checkbox) {
-                                cb.checked = false
-                            }
-                        })
-                    });
-                })
+                // checkboxes.forEach((checkbox) => {
+                //     checkbox.addEventListener('change', function () {
+                //         checkboxes.forEach((cb) => {
+                //             if (cb !== checkbox) {
+                //                 cb.checked = false
+                //             }
+                //         })
+                //     });
+                // })
 
                 const classList = window.frameElement.parentElement.parentElement.classList
 
@@ -209,13 +209,19 @@
                 const openJs = classList.contains('open-js')
                 if (openHtml) {
                     document.querySelector('#html').checked = true
-                } else if (openCss) {
+                }
+
+                if (openCss) {
                     document.querySelector('#css').checked = true
-                } else if (openJs) {
+                }
+
+                if (openJs) {
                     document.querySelector('#js').checked = true
-                } else if (checkboxes.length === 1) {
+                }
+
+                if (checkboxes.length === 1) {
                     const cb = checkboxes[0]
-                    checkboxes[0].checked = true
+                    cb.checked = true
                 }
 
                 // cm.on('change', () => {
