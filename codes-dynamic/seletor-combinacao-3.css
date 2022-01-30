@@ -1,0 +1,12 @@
+.azul {
+    color: blue;
+}
+
+.sem-serifa {
+    font-family: sans-serif;
+}
+
+.azul.sem-serifa { /* nomes não intuitivos */
+    color: red;
+    font-family: monospace;
+}

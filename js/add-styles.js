@@ -5,6 +5,7 @@ addLink('https://fonts.googleapis.com/css2?family=Oswald:wght@200;400;500&displa
 addLink('css/impress-common.css')
 addLink('css/impress-demo.css')
 addLink('css/aula.css')
+addLink('css/labels-color.css')
 
 function addLink(href, rel = 'stylesheet', crossorigin, callback) {
     const l = document.createElement('link')

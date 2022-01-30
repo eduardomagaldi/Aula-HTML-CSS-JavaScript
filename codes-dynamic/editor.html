@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <style>
+            body {
+                background-color: #272822;
+                margin: 0;
+            }
+        </style>
+
+        <link rel="stylesheet"
+            href="css/codemirror.css">
+        <link rel="stylesheet"
+            href="css/monokai.css">
+        <link rel="stylesheet"
+            href="css/labels-color.css">
+
+        <style>
+            .CodeMirror-gutter {
+                background: #585a4d;
+            }
+
+            .cm-s-monokai .CodeMirror-linenumber {
+                color: #303030;
+            }
+
+            .CodeMirror {
+                max-width: 100%;
+                font-size: 20px;
+                height: auto;
+                /* border: 1px solid #585a4d; */
+                /* border: 1px solid transparent; */
+                width: 1px;
+            }
+
+            .line-highlight .CodeMirror-linenumber {
+                color: red;
+            }
+
+            .center .CodeMirror-line>span {
+                text-align: center !important;
+                display: block;
+            }
+
+            .wrapper-body {
+                display: flex;
+            }
+
+            .editor {
+                display: flex;
+            }
+
+            .label {
+                font-family: sans-serif;
+                cursor: pointer;
+                overflow-wrap: break-word;
+                text-transform: uppercase;
+                font-weight: bold;
+                font-size: 30px;
+                text-align: center;
+                display: flex;
+                align-items: center;
+                transition: background-color .3s;
+            }
+
+            .label:hover {
+                background-color: grey;
+            }
+
+            .css,
+            .html,
+            .js {
+                width: 30px;
+                min-width: 30px;
+            }
+
+            #editor-html .label {
+                background: rgb(114, 74, 0);
+            }
+
+            #editor-css .label {
+                background: rgb(0, 0, 88);
+            }
+
+            #editor-js .label {
+                background: rgb(109, 93, 0);
+            }
+
+            #html,
+            #css,
+            #js {
+                display: none;
+            }
+
+            #html:checked+.CodeMirror,
+            .open #html+.CodeMirror,
+            #css:checked+.CodeMirror,
+            .open #css+.CodeMirror,
+            #js:checked+.CodeMirror,
+            .open #js:checked+.CodeMirror {
+                width: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="wrapper-body">
+            <div id="editor-html"
+                class="editor">
+            </div>
+            <div id="editor-css"
+                class="editor">
+            </div>
+            <div id="editor-js"
+                class="editor">
+            </div>
+        </div>
+
+        <script src="js/libs/codemirror.js"></script>
+        <script src="js/libs/mode/xml.js"></script>
+        <script src="js/libs/mode/css.js"></script>
+        <script src="js/libs/mode/javascript.js"></script>
+        <script src="js/messages.js"></script>
+
+        <script>
+            (() => {
+                if (!window.editor) {
+                    window.editorHtml = document.querySelector('#editor-html')
+                    window.editorCss = document.querySelector('#editor-css')
+                    window.editorJs = document.querySelector('#editor-js')
+                }
+
+                const defaultOptions = {
+                    lineNumbers: true,
+                    theme: 'monokai',
+                }
+
+                const html = `[[html]]`
+                const css = `[[css]]`
+                const js = `[[js]]`
+
+                if (html) {
+                    createLabel('html', window.editorHtml)
+
+                    const cmHtml = CodeMirror(
+                        window.editorHtml,
+                        {
+                            ...defaultOptions,
+                            value: html,
+                            mode: 'xml',
+                        }
+                    )
+                }
+
+                if (css) {
+                    createLabel('css', window.editorCss)
+
+                    const cmCss = CodeMirror(
+                        window.editorCss,
+                        {
+                            ...defaultOptions,
+                            value: css,
+                            mode: 'css',
+                        }
+                    )
+                }
+
+                if (js) {
+                    createLabel('js', window.editorJs)
+
+                    const cmJs = CodeMirror(
+                        window.editorJs,
+                        {
+                            ...defaultOptions,
+                            value: js,
+                            mode: 'javascript',
+                        }
+                    )
+                }
+
+                // messages.send({
+                //     type: 'code',
+                //     value: codeValue,
+                //     iframeId: window.frameElement.id,
+                // })
+
+                const wrapperBody = document.querySelector('.wrapper-body')
+                messages.send({
+                    type: 'height',
+                    value: wrapperBody?.offsetHeight,
+                    iframeId: window.frameElement.id,
+                })
+
+                const checkboxes = document.querySelectorAll("input[type=checkbox]")
+                checkboxes.forEach((checkbox) => {
+                    checkbox.addEventListener('change', function () {
+                        checkboxes.forEach((cb) => {
+                            if (cb !== checkbox) {
+                                cb.checked = false
+                            }
+                        })
+                    });
+                })
+
+                const classList = window.frameElement.parentElement.parentElement.classList
+
+                const openHtml = classList.contains('open-html')
+                const openCss = classList.contains('open-css')
+                const openJs = classList.contains('open-js')
+                if (openHtml) {
+                    document.querySelector('#html').checked = true
+                } else if (openCss) {
+                    document.querySelector('#css').checked = true
+                } else if (openJs) {
+                    document.querySelector('#js').checked = true
+                } else if (checkboxes.length === 1) {
+                    const cb = checkboxes[0]
+                    checkboxes[0].checked = true
+                }
+
+                // cm.on('change', () => {
+                //     // messages.send({
+                //     //     type: 'code',
+                //     //     value: codeValue,
+                //     //     iframeId: window.frameElement.id,
+                //     // })
+                // })
+            })();
+
+            //     <label class="label"
+            //     for="html">
+
+            //     <div class="html">html</div>
+            // </label>
+            // <input type="checkbox"
+            //     id="html">
+
+            function createLabel(name, wrapper) {
+                const l = document.createElement('label')
+                l.setAttribute('class', 'label')
+                l.setAttribute('for', name)
+
+                const d = document.createElement('div')
+                d.setAttribute('class', name)
+                const textNode = document.createTextNode(name)
+                d.appendChild(textNode)
+
+                l.appendChild(d)
+
+                const i = document.createElement('input')
+                i.setAttribute('id', name)
+                i.setAttribute('type', 'checkbox')
+
+                wrapper.appendChild(l)
+                wrapper.appendChild(i)
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+* { /* seleciona todos os elementos */
+    color: blue;
+}
+/* não recomendado por
+questões de performance */

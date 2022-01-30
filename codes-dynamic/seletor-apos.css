@@ -1,0 +1,3 @@
+div + p { /* p que está imediatamente após div */
+    color: blue;
+}

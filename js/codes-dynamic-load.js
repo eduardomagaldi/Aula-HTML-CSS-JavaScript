@@ -1,47 +1,47 @@
-const codesDynamic = document.querySelectorAll('.codeDynamic')
-const allCodes = []
-
-for (let i = 0; i < codesDynamic.length; i++) {
-    const el = codesDynamic?.[i]
-    const url = el?.id
-
-    allCodes.push(fetchCode(el, url))
-}
-
 (async () => {
     const templatesResult = await Promise.all([
-        fetchCode(null, 'code'),
+        fetchCode(null, 'editor'),
         fetchCode(null, 'page'),
     ])
 
-    const editorTemplate = templatesResult?.[0]?.code
-    const pageTemplate = templatesResult?.[1]?.code
+    const editorTemplate = templatesResult?.[0]?.html
+    const pageTemplate = templatesResult?.[1]?.html
+
+    const codesDynamic = document.querySelectorAll('.codeDynamic')
+    const allCodes = []
+
+    for (let i = 0; i < codesDynamic.length; i++) {
+        const el = codesDynamic?.[i]
+        const url = el?.id
+
+        allCodes.push(fetchCode(el, url))
+    }
 
     const results = await Promise.all(allCodes)
 
     results.forEach((result) => {
-        handleResult(result, editorTemplate, pageTemplate)
+        handleResult(
+            result,
+            editorTemplate,
+            pageTemplate,
+        )
     })
 
     messages.listen((json) => {
         if (json.type === 'code') {
-            // const el = document.querySelector('#' + json.iframeId).parentElement.parentElement
-            // const result = {
-            //     code: json.value,
-            //     el,
-            // }
+            const el = document.querySelector('#' + json.iframeId).parentElement.parentElement
+            const result = {
+                code: json.value,
+                el,
+            }
             // handleResult(result, editorTemplate, pageTemplate)
         }
 
         if (json.type === 'height') {
-            console.log('json', json)
-
             const el = document.querySelector('#' + json.iframeId)
             const parent = el.parentElement
             el.style.height = json.value + 'px'
             parent.style.height = json.value + 'px'
-            // console.log('el', el)
-
 
             // const result = {
             //     code: json.value,
@@ -53,37 +53,60 @@ for (let i = 0; i < codesDynamic.length; i++) {
 })();
 
 async function fetchCode(el, name) {
-    const responses = await Promise.all([
-        fetch(`codes-dynamic/${name}.html`),
-        fetch(`codes-dynamic/${name}.css`),
-        fetch(`codes-dynamic/${name}.js`),
-    ])
+    let responses
+    const responsesResults = []
+    const responsesResultsTypes = []
+    let successResponseCss
+    let successResponseJs
 
-    const successResponseHtml = responses.filter((resp) => {
-        return resp.status === 200 && resp.url.includes('.html')
+    if (name === 'code' || name === 'page') {
+        responses = await Promise.all([
+            fetch(`codes-dynamic/${name}.html`),
+        ])
+    } else {
+        responses = await Promise.all([
+            fetch(`codes-dynamic/${name}.html`),
+            fetch(`codes-dynamic/${name}.css`),
+            fetch(`codes-dynamic/${name}.js`),
+        ])
+
+        successResponseCss = filterSuccess(responses, 'css')
+        if (successResponseCss) {
+            responsesResultsTypes.push('css')
+            responsesResults.push(successResponseCss?.text())
+        }
+
+        successResponseJs = filterSuccess(responses, 'js')
+        if (successResponseJs) {
+            responsesResultsTypes.push('js')
+            responsesResults.push(successResponseJs?.text())
+        }
+    }
+
+    const successResponseHtml = filterSuccess(responses, 'html')
+    if (successResponseHtml) {
+        responsesResultsTypes.push('html')
+        responsesResults.push(successResponseHtml?.text())
+    }
+
+    const results = await Promise.all(responsesResults)
+    const output = {}
+
+    results.forEach((result, i) => {
+        const type = responsesResultsTypes[i]
+        output[type] = result
+    })
+
+    output.el = el
+    output.name = name
+
+    return output
+}
+
+function filterSuccess(responses, type) {
+    return responses.filter((resp) => {
+        return resp.status === 200 && resp.url.includes('.' + type)
     })?.[0]
-    const successResponseCss = responses.filter((resp) => {
-        return resp.status === 200 && resp.url.includes('.css')
-    })?.[0]
-    const successResponseJs = responses.filter((resp) => {
-        return resp.status === 200 && resp.url.includes('.js')
-    })?.[0]
-
-    const results = await Promise.all([
-        successResponseHtml?.text(),
-        successResponseCss?.text(),
-        successResponseJs?.text(),
-    ])
-    console.log('results', results)
-
-    // console.log('result', result)
-
-    // return {
-    //     el,
-    //     code: codeHtml,
-    //     codeType:
-    //     name,
-    // }
 }
 
 function applyToIframe(wrapper, html, name) {
@@ -103,74 +126,26 @@ function applyToIframe(wrapper, html, name) {
 }
 
 function handleResult(result, editorTemplate, pageTemplate) {
-    const codeValue = result?.code
+    let html = result.html ?? ''
+    let css = result.css ?? ''
+    let js = result.js ?? ''
+
+    // const codeValue = result?.code
     const name = result?.name
     const el = result?.el
-    const codeIframeHtml = editorTemplate?.replace('[[html]]', codeValue)
-    const pageIframeHtml = pageTemplate?.replace('[[html]]', codeValue)
+    let editorHtml = editorTemplate
+    let pageHtml = pageTemplate
 
-    applyToIframe(el?.querySelector('.code'), codeIframeHtml, 'iframe-code-' + name)
-    applyToIframe(el?.querySelector('.page'), pageIframeHtml, 'iframe-page-' + name)
+    editorHtml = editorHtml?.replace('[[html]]', html)
+    editorHtml = editorHtml?.replace('[[css]]', css)
+    editorHtml = editorHtml?.replace('[[js]]', js)
+
+    pageHtml = pageHtml?.replace('[[html]]', html)
+    pageHtml = pageHtml?.replace('[[css]]', css)
+    pageHtml = pageHtml?.replace('[[js]]', js)
+
+    // const pageIframeHtml = pageTemplate?.replace('[[html]]', codeValue)
+
+    applyToIframe(el?.querySelector('.code'), editorHtml, 'iframe-code-' + name)
+    applyToIframe(el?.querySelector('.page'), pageHtml, 'iframe-page-' + name)
 }
-
-// function applyToIframe(wrapper, iframe, html) {
-//     if (!wrapper.hasChildNodes()) {
-//         wrapper.appendChild(iframe)
-//     }
-
-
-
-
-//     // const wrapperBody = iframe.contentWindow.document.querySelector('.wrapperBody')
-
-//     // console.log('wrapperBody.offsetHeight', wrapperBody?.offsetHeight)
-
-//
-// }
-
-// // function addScript(src, document, callback) {
-// //     const s = document.createElement('script')
-// //     s.setAttribute('src', src)
-// //     s.onload = callback
-// //     document.body.appendChild(s)
-// // }
-
-// // console.log('codesDynamic', codesDynamic[0].dataset.url)
-
-// // setTimeout(async () => {
-// //     messages.listen((json) => {
-// //         console.log('json', json)
-// //     })
-
-// //     messages.send({ bla: 1 })
-// // }, 0)
-
-// //     const respCode = await fetch('codes/code.html')
-// //     const htmlCode = await respCode.text()
-
-// //     const iframeCode = document.createElement('iframe')
-// //     const wrapperCode = document.querySelector('#wrapper-code')
-// //     applyToIframe(wrapperCode, iframeCode, htmlCode)
-
-// //     const iframePage = document.createElement('iframe')
-// //     const wrapperPage = document.querySelector('#wrapper-page')
-
-// //     window.addEventListener('message', async function (e) {
-// //         const htmlContent = JSON.parse(e.data)
-
-// //         iframeCode.style.height = htmlContent.height + 'px'
-// //         wrapperCode.style.height = htmlContent.height + 'px'
-
-// //         const respPage = await fetch('codes/page.html')
-// //         const htmlPage = await respPage.text()
-
-// //         applyToIframe(wrapperPage, iframePage, htmlPage)
-// //     }, false);
-
-// //     window.addEventListener('codeChange', async function (e) {
-
-// //     }, false);
-
-//     // messagesListen((json) => {
-//     //     console.log('json', json)
-//     // })
