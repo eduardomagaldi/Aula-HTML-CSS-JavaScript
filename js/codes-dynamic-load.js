@@ -13,8 +13,9 @@
     for (let i = 0; i < codesDynamic.length; i++) {
         const el = codesDynamic?.[i]
         const url = el?.id
+        const htmlName = el?.dataset?.html
 
-        allCodes.push(fetchCode(el, url))
+        allCodes.push(fetchCode(el, url, htmlName))
     }
 
     const results = await Promise.all(allCodes)
@@ -52,23 +53,29 @@
     })
 })();
 
-async function fetchCode(el, name) {
+async function fetchCode(el, name, htmlName) {
     let responses
     const responsesResults = []
     const responsesResultsTypes = []
     let successResponseCss
     let successResponseJs
 
+    // console.log('htmlName', htmlName)
+    htmlName = htmlName ?? name
+    console.log('htmlName', htmlName)
+
     if (name === 'code' || name === 'page') {
         responses = await Promise.all([
-            fetch(`codes-dynamic/${name}.html`),
+            fetch(`codes-dynamic/${htmlName}.html`),
         ])
     } else {
         responses = await Promise.all([
-            fetch(`codes-dynamic/${name}.html`),
+            fetch(`codes-dynamic/${htmlName}.html`),
             fetch(`codes-dynamic/${name}.css`),
             fetch(`codes-dynamic/${name}.js`),
         ])
+
+        console.log('responses', responses)
 
         successResponseCss = filterSuccess(responses, 'css')
         if (successResponseCss) {
@@ -139,6 +146,7 @@ function handleResult(result, editorTemplate, pageTemplate) {
     editorHtml = editorHtml?.replace('[[html]]', html)
     editorHtml = editorHtml?.replace('[[css]]', css)
     editorHtml = editorHtml?.replace('[[js]]', js)
+    // editorHtml = editorHtml?.replace('[[bodyClass]]', 'center')
 
     pageHtml = pageHtml?.replace('[[html]]', html)
     pageHtml = pageHtml?.replace('[[css]]', css)
